@@ -1,0 +1,6 @@
+path: ../../data/IDCard_Detection  # dataset root dir
+train: train
+val: val
+
+names:
+  0: idcard
