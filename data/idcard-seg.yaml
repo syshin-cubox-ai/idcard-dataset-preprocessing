@@ -1,0 +1,6 @@
+path: ../../data/IDCard_Segmentation  # dataset root dir
+train: train
+val: val
+
+names:
+  0: idcard
