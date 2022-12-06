@@ -5,7 +5,7 @@ import shutil
 
 import tqdm
 
-root = '../../data/IDCard_Detection'
+root = '../../data/IDCard_Segmentation'
 val_value = 0.1
 
 all_images = glob.glob(os.path.join(root, 'all', '*.jpg'))
@@ -26,13 +26,13 @@ shutil.rmtree(os.path.join(root, 'val'), ignore_errors=True)
 os.makedirs(os.path.join(root, 'train'))
 os.makedirs(os.path.join(root, 'val'))
 for train_image in tqdm.tqdm(train_images, 'Split train'):
-    shutil.copy(train_image, train_image.replace('all', 'train'))
+    shutil.move(train_image, train_image.replace('all', 'train'))
     train_label = train_image.replace('.jpg', '.txt')
-    shutil.copy(train_label, train_label.replace('all', 'train'))
+    shutil.move(train_label, train_label.replace('all', 'train'))
 
 for val_image in tqdm.tqdm(val_images, 'Split val'):
-    shutil.copy(val_image, val_image.replace('all', 'val'))
+    shutil.move(val_image, val_image.replace('all', 'val'))
     val_label = val_image.replace('.jpg', '.txt')
-    shutil.copy(val_label, val_label.replace('all', 'val'))
+    shutil.move(val_label, val_label.replace('all', 'val'))
 
 shutil.rmtree(os.path.join(root, 'all'))
