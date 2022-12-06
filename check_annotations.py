@@ -4,9 +4,10 @@ import os
 import tqdm
 
 root = '../../data/IDCard_Detection'
+annotation_path = os.path.join('data', 'IDcard_Detection.json')
 
 # Load coco format annotations
-with open(os.path.join('data', 'IDcard_Detection.json'), 'r', encoding='utf-8') as f:
+with open(annotation_path, 'r', encoding='utf-8') as f:
     coco = json.load(f)
 
 # Map image id and image file name.

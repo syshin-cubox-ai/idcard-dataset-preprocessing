@@ -5,15 +5,17 @@ import shutil
 
 import tqdm
 
-root = '../../data/IDCard_Detection'
+src_dir = os.path.join('data', 'IDcard_Detection')
+root = '../../data/IDcard_Detection'
 dst_dir = os.path.join(root, 'all')
+annotation_path = os.path.join('data', 'IDcard_Detection.json')
 
 # Load coco format annotations
-with open(os.path.join('data', 'IDcard_Detection.json'), 'r', encoding='utf-8') as f:
+with open(annotation_path, 'r', encoding='utf-8') as f:
     coco = json.load(f)
 
 # Check the number of images and number of annotations
-num_images = len(glob.glob(os.path.join('data', 'IDcard_Detection', '*.jpg')))
+num_images = len(glob.glob(os.path.join(src_dir, '*.jpg')))
 assert num_images == len(coco['images']) == len(coco['annotations'])
 print(f'전체 개수: {num_images}')
 
@@ -41,7 +43,7 @@ for anno in tqdm.tqdm(coco['annotations'], 'coco2yolo'):
 
     # Copy image corresponding to annotation
     image_filename = image_id_filename[anno['image_id']]
-    shutil.copy(os.path.join('data', 'IDCard_Detection', image_filename),
+    shutil.copy(os.path.join(src_dir, image_filename),
                 os.path.join(dst_dir, image_filename))
 
     # Save yolo format annotation
