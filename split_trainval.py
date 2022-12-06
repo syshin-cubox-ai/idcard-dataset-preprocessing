@@ -6,7 +6,7 @@ import shutil
 import tqdm
 
 root = '../../data/IDCard_Detection'
-val_value = 0.15
+val_value = 0.1
 
 all_images = glob.glob(os.path.join(root, 'all', '*.jpg'))
 all_labels = glob.glob(os.path.join(root, 'all', '*.txt'))
