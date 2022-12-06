@@ -5,12 +5,14 @@ import tqdm
 
 root = '../../data/IDCard_Detection'
 
+# Load coco format annotations
 with open(os.path.join('data', 'IDcard_Detection.json'), 'r', encoding='utf-8') as f:
     coco = json.load(f)
 
 # Map image id and image file name.
 image_id_filename = {image['id']: image['file_name'] for image in coco['images']}
 
+# Check annotations
 multiple_polygon = []
 invalid_num_polygon_points = []
 for anno in tqdm.tqdm(coco['annotations'], 'Check dataset'):

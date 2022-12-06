@@ -8,6 +8,7 @@ import tqdm
 root = '../../data/IDCard_Detection'
 dst_dir = os.path.join(root, 'all')
 
+# Load coco format annotations
 with open(os.path.join('data', 'IDcard_Detection.json'), 'r', encoding='utf-8') as f:
     coco = json.load(f)
 
