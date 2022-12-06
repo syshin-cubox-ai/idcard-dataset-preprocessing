@@ -17,8 +17,8 @@ os.makedirs(os.path.join(root, 'all'), exist_ok=True)
 shutil.copy(os.path.join('data', 'idcard.yaml'), root)
 
 for anno in tqdm.tqdm(coco['annotations'], 'coco2yolo'):
-    # assert len(anno['segmentation']) == 1, 'polygon이 1개가 아닙니다.'
-    # assert len(anno['segmentation'][0]) == 8, 'polygon의 점이 4개가 아닙니다.'
+    assert len(anno['segmentation']) == 1, 'polygon이 1개가 아닙니다.'
+    assert len(anno['segmentation'][0]) == 8, 'polygon의 점이 4개가 아닙니다.'
     assert anno['category_id'] == 1, '카테고리가 1개가 아닙니다.'
     assert len(anno['bbox']) == 4, 'bbox가 1개가 아닙니다.'
 
