@@ -1,6 +1,8 @@
 .idea/
 data/IDCard_Detection/
+data/IAS_testset2
 data/IDcard_Detection.json
+data/IAS_testset2.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
