@@ -6,7 +6,7 @@ import shutil
 import tqdm
 
 src_dir = os.path.join('data', 'IDcard_Detection')
-root = '../../data/IDcard_Detection'
+root = '../../data/IDCard_Detection'
 dst_dir = os.path.join(root, 'all')
 annotation_path = os.path.join('data', 'IDcard_Detection.json')
 
