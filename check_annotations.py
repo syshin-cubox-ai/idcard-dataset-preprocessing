@@ -3,7 +3,6 @@ import os
 
 import tqdm
 
-root = '../../data/IDCard_Detection'
 annotation_path = os.path.join('data', 'IDcard_Detection.json')
 
 # Load coco format annotations
