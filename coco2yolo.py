@@ -1,4 +1,3 @@
-import glob
 import json
 import os
 import shutil
@@ -6,7 +5,7 @@ import shutil
 import tqdm
 
 img_dir = os.path.join('data', 'idcard_trainset')
-annotation_path = os.path.join('data', 'IDcard_Detection.json')
+annotation_path = os.path.join('data', 'idcard_trainset.json')
 root = '../../data/idcard_detect'
 dst_img_dir = os.path.join(root, 'train')
 
@@ -14,25 +13,14 @@ dst_img_dir = os.path.join(root, 'train')
 with open(annotation_path, 'r', encoding='utf-8') as f:
     coco = json.load(f)
 
-# Check the number of images and number of annotations
-num_images = len(glob.glob(os.path.join(img_dir, '*.jpg')))
-assert num_images == len(coco['images']) == len(coco['annotations'])
-print(f'전체 개수: {num_images}')
-
 # Map image id and image file name
 image_id_filename = {image['id']: image['file_name'] for image in coco['images']}
 
 # Copy yaml file
+os.makedirs(dst_img_dir, exist_ok=True)
 shutil.copy(os.path.join('yaml_files', 'idcard.yaml'), root)
 
-os.makedirs(dst_img_dir, exist_ok=True)
 for anno in tqdm.tqdm(coco['annotations'], 'coco2yolo'):
-    # Check annotation
-    assert len(anno['segmentation']) == 1, 'polygon이 1개가 아닙니다.'
-    assert len(anno['segmentation'][0]) == 8, 'polygon의 점이 4개가 아닙니다.'
-    assert anno['category_id'] == 1, '카테고리가 1개가 아닙니다.'
-    assert len(anno['bbox']) == 4, 'bbox가 1개가 아닙니다.'
-
     # Convert annotation to yolo format
     category = anno['category_id'] - 1
     x1, y1, w, h = anno['bbox']
