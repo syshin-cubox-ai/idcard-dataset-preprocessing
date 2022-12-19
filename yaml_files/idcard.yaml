@@ -1,4 +1,4 @@
-path: ../../data/IDCard_Detection  # dataset root dir
+path: ../../data/idcard_detect  # dataset root dir
 train: train
 val: val
 
