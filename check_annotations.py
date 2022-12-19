@@ -3,7 +3,7 @@ import os
 
 import tqdm
 
-annotation_path = os.path.join('data', 'IDcard_Detection.json')
+annotation_path = os.path.join('data', 'idcard_trainset.json')
 
 # Load coco format annotations
 with open(annotation_path, 'r', encoding='utf-8') as f:
@@ -13,6 +13,7 @@ with open(annotation_path, 'r', encoding='utf-8') as f:
 image_id_filename = {image['id']: image['file_name'] for image in coco['images']}
 
 # Check annotations
+assert len(coco['images']) == len(coco['annotations']), f'images 정보 개수와 annotations 정보 개수가 다릅니다.'
 multiple_polygon = []
 invalid_num_polygon_points = []
 for anno in tqdm.tqdm(coco['annotations'], 'Check dataset'):
