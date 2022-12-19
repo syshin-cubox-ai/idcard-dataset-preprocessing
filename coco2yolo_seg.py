@@ -25,7 +25,7 @@ image_id_filename = {image['id']: image['file_name'] for image in coco['images']
 
 # Copy yaml file
 os.makedirs(dst_dir, exist_ok=True)
-shutil.copy(os.path.join('data', 'idcard-seg.yaml'), root)
+shutil.copy(os.path.join('yaml_files', 'idcard-seg.yaml'), root)
 
 for anno in tqdm.tqdm(coco['annotations'], 'coco2yolo-seg'):
     # Check annotation
