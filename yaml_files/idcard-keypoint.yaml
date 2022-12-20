@@ -1,0 +1,6 @@
+train: ../../data/idcard_keypoint/train
+val: ../../data/idcard_keypoint/val
+
+nc: 1
+
+names: ['idcard']
