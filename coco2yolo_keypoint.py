@@ -47,4 +47,4 @@ for anno in tqdm.tqdm(coco['annotations'], 'coco2yolo_keypoint'):
         f.write(f'{category} {cx:.4f} {cy:.4f} {w:.4f} {h:.4f} '
                 f'{landmarks[6]:.4f} {landmarks[7]:.4f} 2.0000 {landmarks[4]:.4f} {landmarks[5]:.4f} '
                 f'2.0000 {landmarks[2]:.4f} {landmarks[3]:.4f} 2.0000 {landmarks[0]:.4f} {landmarks[1]:.4f} '
-                f'2.0000 {mcx:.4f} {mcy:.4f}')
+                f'2.0000 {mcx:.4f} {mcy:.4f} 2.0000')
