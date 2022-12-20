@@ -24,9 +24,8 @@ shutil.copy(os.path.join('yaml_files', 'idcard-seg.yaml'), root)
 for anno in tqdm.tqdm(coco['annotations'], 'coco2yolo-seg'):
     # Convert annotation to yolo format
     category = anno['category_id'] - 1
-    segmentation = anno['segmentation'][0]
-    segmentation = (np.array(segmentation).reshape(-1, 2) / np.array([anno['width'], anno['height']]))
-    segmentation = segmentation.reshape(-1).tolist()
+    segmentation = np.array(anno['segmentation'][0]).reshape(-1, 2)
+    segmentation = (segmentation / np.array([anno['width'], anno['height']])).reshape(-1).tolist()
 
     # Copy image corresponding to annotation
     image_filename = image_id_filename[anno['image_id']]
