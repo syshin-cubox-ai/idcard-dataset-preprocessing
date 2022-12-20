@@ -44,7 +44,7 @@ for anno in tqdm.tqdm(coco['annotations'], 'coco2yoloface'):
     # Save yolo format annotation
     anno_path = os.path.join(dst_img_dir, image_filename.replace('.jpg', '.txt'))
     with open(anno_path, 'w', encoding='utf-8') as f:
-        f.write(f'{category} {cx} {cy} {w} {h}'
+        f.write(f'{category} {cx} {cy} {w} {h} '
                 f'{landmarks[6]} {landmarks[7]} {landmarks[4]} {landmarks[5]} '
                 f'{landmarks[2]} {landmarks[3]} {landmarks[0]} {landmarks[1]} '
                 f'{mcx} {mcy}')
