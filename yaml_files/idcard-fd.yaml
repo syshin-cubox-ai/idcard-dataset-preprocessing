@@ -1,6 +1,6 @@
-path: ../../data/idcard_fd  # dataset root dir
-train: train
-val: val
+train: ../../data/idcard_fd/train
+val: ../../data/idcard_fd/val
 
-names:
-  0: idcard
+nc: 1
+
+names: ['idcard']
