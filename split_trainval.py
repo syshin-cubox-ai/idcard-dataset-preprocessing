@@ -5,15 +5,13 @@ import shutil
 
 import tqdm
 
-root = '../../data/IDCard_Segmentation'
-val_value = 0.1
+root = '../../data/idcard_segment'
+num_val = 22
 
 all_images = glob.glob(os.path.join(root, 'all', '*.jpg'))
 all_labels = glob.glob(os.path.join(root, 'all', '*.txt'))
 assert len(all_images) == len(all_labels)
 print(f'전체 개수: {len(all_images)}')
-
-num_val = round(len(all_images) * val_value)
 
 random.shuffle(all_images)
 val_images = all_images[:num_val]
