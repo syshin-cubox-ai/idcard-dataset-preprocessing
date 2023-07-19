@@ -25,12 +25,12 @@ os.makedirs(os.path.join(root, 'train'))
 os.makedirs(os.path.join(root, 'val'))
 for train_image in tqdm.tqdm(train_images, 'Split train'):
     shutil.move(train_image, train_image.replace('all', 'train'))
-    train_label = train_image.replace('.jpg', '.txt')
+    train_label = train_image.replace('.jpg', '.txt').replace('.JPG', '.txt')
     shutil.move(train_label, train_label.replace('all', 'train'))
 
 for val_image in tqdm.tqdm(val_images, 'Split val'):
     shutil.move(val_image, val_image.replace('all', 'val'))
-    val_label = val_image.replace('.jpg', '.txt')
+    val_label = val_image.replace('.jpg', '.txt').replace('.JPG', '.txt')
     shutil.move(val_label, val_label.replace('all', 'val'))
 
 shutil.rmtree(os.path.join(root, 'all'))

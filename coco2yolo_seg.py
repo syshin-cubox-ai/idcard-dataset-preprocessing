@@ -33,7 +33,7 @@ for anno in tqdm.tqdm(coco['annotations'], 'coco2yolo-seg'):
                 os.path.join(dst_img_dir, image_filename))
 
     # Save yolo format annotation
-    anno_path = os.path.join(dst_img_dir, image_filename.replace('.jpg', '.txt'))
+    anno_path = os.path.join(dst_img_dir, image_filename.replace('.jpg', '.txt').replace('.JPG', '.txt'))
     with open(anno_path, 'w', encoding='utf-8') as f:
         f.write(f'{category} {segmentation[0]:.4f} {segmentation[1]:.4f} {segmentation[2]:.4f} {segmentation[3]:.4f} '
                 f'{segmentation[4]:.4f} {segmentation[5]:.4f} {segmentation[6]:.4f} {segmentation[7]:.4f}')
